@@ -4,7 +4,7 @@ const initialState = {
 export const BooksReducer = (state = initialState, action) => {
     switch (action.type) {
         case 'SEARCH_BOOKS':
-            return [action.payload.books]
+            return {...state, books: action.payload.books}
         default:
             return state;
     }
