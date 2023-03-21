@@ -6,8 +6,12 @@ export const useSelect = (initialState) => {
     const onChange = (e) => {
         setValue(e.target.value)
     }
+    const clear = () => {
+        setValue('')
+    }
     return [
         value,
-        onChange
+        onChange,
+        clear
     ]
 }

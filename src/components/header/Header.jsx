@@ -1,13 +1,13 @@
 import React from 'react';
 import Logo from "../logo/Logo";
-import Form from "../form/Form";
+import SearcForm from "../form/SearcForm.";
 import './Header.css';
 
 const Header = () => {
     return (
         <header className={'header'}>
             <Logo/>
-            <Form/>
+            <SearcForm/>
         </header>
     );
 };
