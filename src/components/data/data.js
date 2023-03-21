@@ -7,6 +7,7 @@ export const categoriesOptions = [
     {value: 'medical'},
     {value: 'poetry'},
 ];
+
 export const sortOptions = [
     {value:'relevance'},
     {value: 'newest'}
