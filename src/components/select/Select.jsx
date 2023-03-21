@@ -1,11 +1,13 @@
 import React from 'react';
 import './Select.css';
 
-const Select = ({options}) => {
+const Select = ({options, onChange}) => {
+
     return (
-        <select id={'categories'}>
+        <select id={'categories'} onChange={(e) => onChange(e)}>
             {options.map(option => {
-                return <option key={option.value} value={option.value}>{option.value}</option>
+                return <option key={option.value}
+                               value={option.value}>{option.value}</option>
             })}
         </select>
     );
