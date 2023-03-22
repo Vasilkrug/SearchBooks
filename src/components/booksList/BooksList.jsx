@@ -5,10 +5,14 @@ import './BooksList.css';
 
 const BooksList = () => {
     const books = useSelector(state => state.books.books)
+    const totalBooks = useSelector(state => state.books.totalBooks)
     const emptyImg = require('../../assets/images/emptyImg.jpg');
-
+    console.log(books)
     return (
         <main className={'book-list'}>
+            <div className={'total-books'}>
+                <h2>Найдено {totalBooks} книг</h2>
+            </div>
             {books.length ? books.map(book => {
                     return <BookCard
                         key={book.id}

@@ -4,3 +4,7 @@
     gap: 30px;
     flex-wrap: wrap;
 }
+.total-books {
+    flex: 0 1 100%;
+    text-align: center;
+}

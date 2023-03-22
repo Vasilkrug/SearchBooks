@@ -2,7 +2,6 @@ import React from 'react';
 import './BookCard.css'
 
 const BookCard = ({img, categories, title, authors}) => {
-    console.log(img)
     return (
         <div className={'book-card'}>
             <div className={'card-img'}>

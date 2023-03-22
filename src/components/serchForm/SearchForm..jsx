@@ -15,6 +15,7 @@ const SearchForm = () => {
     const getData = async (e) => {
         e.preventDefault()
         const data = await fetchToApi(value, categorySelect, sortSelect)
+        dispatch({type:'TOTAL_BOOKS',payload:{count:data.totalItems}})
         dispatch({type: 'SEARCH_BOOKS', payload: {books: data.items || []}})
         clear()
     }

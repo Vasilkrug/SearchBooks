@@ -4,9 +4,10 @@ export const fetchToApi = async (value, categorySelect, sortSelect) => {
     const url = `https://www.googleapis.com/books/v1/volumes?q=`;
     const orderBy = `orderBy=${sortSelect}`;
     const category = `%2Bsubject:${categorySelect}`;
+    const searchValue = `${value}%2Bintitle:${value}`;
 
     try {
-        const request = await fetch(`${url}${value}${category}&${orderBy}&maxResults=30&key=${key}`)
+        const request = await fetch(`${url}${searchValue}${category}&${orderBy}&maxResults=30&key=${key}`)
         return await request.json()
     } catch (e) {
         console.error(e)

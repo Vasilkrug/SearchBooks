@@ -8,10 +8,15 @@
     padding: 10px;
     cursor: pointer;
 }
+
 .card-title {
     font-weight: 600;
 }
-.card-img img{
+.card-info p {
+    text-decoration: underline;
+}
+
+.card-img img {
     width: 100%;
     height: 250px;
 }
