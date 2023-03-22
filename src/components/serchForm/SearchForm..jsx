@@ -4,27 +4,21 @@ import Select from "../select/Select";
 import {categoriesOptions, sortOptions} from "../data/data";
 import {useDispatch} from "react-redux";
 import {useSelect} from "../../hooks/useSelect";
+import {fetchToApi} from "../../api/api";
 
-const SearcForm = () => {
+const SearchForm = () => {
     const [categorySelect, setCategorySelect] = useSelect('all');
     const [sortSelect, setSortSelect] = useSelect('relevance');
     const [value, setValue, clear] = useSelect('');
 
     const dispatch = useDispatch()
-    //api
     //отфильтровать ответ сервера
-    const fetchToApi = async (e) => {
+    const getData = async (e) => {
         e.preventDefault()
-        try {
-            const request = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${value}%20subject:${categorySelect}&orderBy=${sortSelect}&maxResults=30&key=AIzaSyAQrcw62zlWuvJo3l6KqepGkD0osFJbYqc`)
-            const response = await request.json()
+        const data = await fetchToApi(value, categorySelect, sortSelect)
+        dispatch({type: 'SEARCH_BOOKS', payload: {books: data.items || []}})
+        clear()
 
-            dispatch({type: 'SEARCH_BOOKS', payload: {books: response.items || []}})
-        } catch (e) {
-            console.error(e)
-        } finally {
-            clear()
-        }
     }
 
     return (
@@ -39,9 +33,9 @@ const SearcForm = () => {
             <label>
                 <Select options={sortOptions} onChange={setSortSelect}/>
             </label>
-            <button onClick={(e) => fetchToApi(e)} className={'search-button'}>Search</button>
+            <button onClick={(e) => getData(e)} className={'search-button'}>Search</button>
         </form>
     );
 };
 
-export default SearcForm;
+export default SearchForm;
