@@ -11,14 +11,12 @@ const SearchForm = () => {
     const [sortSelect, setSortSelect] = useSelect('relevance');
     const [value, setValue, clear] = useSelect('');
 
-    const dispatch = useDispatch()
-    //отфильтровать ответ сервера
+    const dispatch = useDispatch();
     const getData = async (e) => {
         e.preventDefault()
         const data = await fetchToApi(value, categorySelect, sortSelect)
         dispatch({type: 'SEARCH_BOOKS', payload: {books: data.items || []}})
         clear()
-
     }
 
     return (

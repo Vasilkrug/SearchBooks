@@ -2,17 +2,17 @@ import React from 'react';
 import './BookCard.css'
 
 const BookCard = ({img, categories, title, authors}) => {
-
+    console.log(img)
     return (
         <div className={'book-card'}>
             <div className={'card-img'}>
-                <img src={img} alt=""/>
+                <img src={img} alt="book"/>
             </div>
             <div className={'card-title'}>
                 <p>{title}</p>
             </div>
             <div className={'card-info'}>
-                <p>{categories[0]}</p>
+                <p>{!categories.length ? 'Без категории' : categories[0]}</p>
                 <span>{!authors ? 'Без автора' : authors[0]}</span>
             </div>
         </div>
