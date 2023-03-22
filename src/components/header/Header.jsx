@@ -1,6 +1,6 @@
 import React from 'react';
 import Logo from "../logo/Logo";
-import SearchForm from "../serchForm/SearchForm.";
+import SearchForm from "../searchForm/SearchForm.";
 import './Header.css';
 
 const Header = () => {

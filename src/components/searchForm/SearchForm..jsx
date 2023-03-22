@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './SearcForm.css';
 import Select from "../select/Select";
 import {categoriesOptions, sortOptions} from "../data/data";
@@ -15,7 +15,11 @@ const SearchForm = () => {
     const getData = async (e) => {
         e.preventDefault()
         dispatch({type: 'SET_IS_LOADING', payload: {isLoading: true}})
+        dispatch({type: 'SET_INPUT_VALUE', payload: {inputValue: value}})
+        dispatch({type: 'SET_SORT_OPTIONS', payload: {sortOptions: {categorySelect, sortSelect}}})
         const data = await fetchToApi(value, categorySelect, sortSelect)
+        const isError = !data.totalItems;
+        dispatch({type: 'SET_ERROR', payload: {error: isError}})
         dispatch({type: 'TOTAL_BOOKS', payload: {count: data.totalItems}})
         dispatch({type: 'SEARCH_BOOKS', payload: {books: data.items || []}})
         clear()
