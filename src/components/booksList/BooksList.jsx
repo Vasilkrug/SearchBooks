@@ -7,7 +7,7 @@ const BooksList = () => {
     const books = useSelector(state => state.books.books)
     const totalBooks = useSelector(state => state.books.totalBooks)
     const emptyImg = require('../../assets/images/emptyImg.jpg');
-    console.log(books)
+
     return (
         <main className={'book-list'}>
             <div className={'total-books'}>

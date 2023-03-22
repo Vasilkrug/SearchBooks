@@ -14,10 +14,12 @@ const SearchForm = () => {
     const dispatch = useDispatch();
     const getData = async (e) => {
         e.preventDefault()
+        dispatch({type: 'SET_IS_LOADING', payload: {isLoading: true}})
         const data = await fetchToApi(value, categorySelect, sortSelect)
-        dispatch({type:'TOTAL_BOOKS',payload:{count:data.totalItems}})
+        dispatch({type: 'TOTAL_BOOKS', payload: {count: data.totalItems}})
         dispatch({type: 'SEARCH_BOOKS', payload: {books: data.items || []}})
         clear()
+        dispatch({type: 'SET_IS_LOADING', payload: {isLoading: false}})
     }
 
     return (
