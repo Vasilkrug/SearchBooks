@@ -1,0 +1,48 @@
+.book-preview {
+    margin: 0 auto;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 40px;
+    max-width: 800px;
+    height: 600px;
+}
+
+.book-preview-head {
+    flex: 0 1 100%;
+    text-align: center;
+}
+
+.book-preview-img {
+    flex: 1 1 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.book-preview-img img {
+    height: 320px;
+    width: 300px;
+}
+
+.author-preview {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 28px;
+    letter-spacing: -0.045em;
+}
+
+.book-preview-description {
+    flex: 1 1 50%;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    letter-spacing: -0.045em;
+    border: 1px solid #E7D6AC;
+    padding: 5px;
+}
