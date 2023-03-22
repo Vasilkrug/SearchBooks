@@ -1,3 +1,0 @@
-const getUniqueItems = (array) => {
-
-}
