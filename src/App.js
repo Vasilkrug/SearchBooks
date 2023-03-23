@@ -10,6 +10,7 @@ import BookPreview from "./components/bookPreview/BookPreview.";
 const App = () => {
     const isLoading = useSelector(state => state.books.isLoading)
     const selectedBook = useSelector(state => state.books.selectedBook)
+
     return (
         <div className={'App'}>
             <Header/>

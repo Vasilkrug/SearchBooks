@@ -1,0 +1,9 @@
+.search-button {
+    background: #E7D6AC;
+    border-radius: 20px;
+    color: #550D0E;
+    font-size: 15px;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}

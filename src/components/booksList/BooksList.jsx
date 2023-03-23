@@ -3,6 +3,7 @@ import BookCard from "../bookCard/BookCard";
 import {useDispatch, useSelector} from "react-redux";
 import './BooksList.css';
 import {fetchToApi} from "../../api/api";
+import Button from "../button/Button";
 
 const BooksList = () => {
     const books = useSelector(state => state.books.books)
@@ -14,10 +15,14 @@ const BooksList = () => {
     const emptyImg = require('../../assets/images/emptyImg.jpg');
     const {categorySelect, sortSelect} = sortOptions
     const dispatch = useDispatch();
+
     const getId = (id) => {
         dispatch({type: 'SELECT_BOOK', payload: {id: id}})
     }
-    const loadMoreHandler = async () => {
+
+    const loadMoreHandler = async (e) => {
+        e.preventDefault()
+        books.length
         dispatch({type: 'SET_IS_LOADING', payload: {isLoading: true}})
         dispatch({type: 'INCREMENT_START_INDEX'})
         const data = await fetchToApi(inputValue, categorySelect, sortSelect, startIndex)
@@ -27,9 +32,12 @@ const BooksList = () => {
 
     return (
         <main className={'book-list'}>
-            <div className={'total-books'}>
+            {!books.length && !hasError ? <h2>Попробуйте найти книгу</h2> : null}
+            {totalBooks ? <div className={'total-books'}>
                 <h2>Найдено {totalBooks} книг</h2>
-            </div>
+            </div> : null}
+            {!totalBooks && hasError ?
+                <h2>Книг не найдено</h2> : null}
             {books.length && !hasError ? books.map(book => {
                     return <BookCard
                         key={book.id}
@@ -40,9 +48,11 @@ const BooksList = () => {
                         categories={book.volumeInfo.categories || []}
                         img={book?.volumeInfo?.imageLinks?.thumbnail || emptyImg}/>
                 })
-                : <h1>Найдите книгу</h1>}
+                : null}
             <div className={'more-button'}>
-                <button onClick={() => loadMoreHandler()}>More</button>
+                {books.length && books.length >= 30 ?
+                    <Button onclick={loadMoreHandler} text={'Загрузить еще'}/>
+                    : null}
             </div>
         </main>
     );
