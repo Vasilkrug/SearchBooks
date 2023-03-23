@@ -9,7 +9,7 @@ const BookPreview = ({selectedBook}) => {
     return (
         <div className={'book-preview'}>
             <div className={'book-preview-head'}>
-                <p className={'author-preview'}>{authors[0] || 'Без автора'}</p>
+                <p className={'author-preview'}>{!authors ? 'Без автора' : authors[0]}</p>
                 <p>{title}</p>
                 <span>{!categories ? 'Без категории' : categories[0]}</span>
             </div>

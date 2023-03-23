@@ -22,7 +22,6 @@ const BooksList = () => {
 
     const loadMoreHandler = async (e) => {
         e.preventDefault()
-        books.length
         dispatch({type: 'SET_IS_LOADING', payload: {isLoading: true}})
         dispatch({type: 'INCREMENT_START_INDEX'})
         const data = await fetchToApi(inputValue, categorySelect, sortSelect, startIndex)
@@ -50,7 +49,7 @@ const BooksList = () => {
                 })
                 : null}
             <div className={'more-button'}>
-                {books.length && books.length >= 30 ?
+                {(books.length && books.length >= 30 ) && (startIndex < totalBooks)?
                     <Button onclick={loadMoreHandler} text={'Загрузить еще'}/>
                     : null}
             </div>
