@@ -5,11 +5,11 @@ export const fetchToApi = async (value, categorySelect, sortSelect, startIndex =
     const orderBy = `orderBy=${sortSelect}`;
     const category = categorySelect !== 'all' ? `subject:${categorySelect}` : 'terms';
     const searchValue = `${value}%2Bintitle:${value}`;
-    const start = `&startIndex=${startIndex}`
+    const start = `&startIndex=${startIndex}`;
     try {
-        const request = await fetch(`${url}q=${searchValue}%2B${category}&${orderBy}&maxResults=30${start}&key=${key}`)
-        return await request.json()
+        const request = await fetch(`${url}q=${searchValue}%2B${category}&${orderBy}&maxResults=30${start}&key=${key}`);
+        return await request.json();
     } catch (e) {
-        console.error(e)
+        console.error(e);
     }
-}
+};

@@ -1,11 +1,11 @@
 import React from 'react'
+import Header from './components/header/Header';
+import BooksList from './components/booksList/BooksList';
+import Loader from './components/loader/Loader';
+import {useSelector} from 'react-redux';
+import {Route, Routes} from 'react-router-dom';
+import BookPreview from './components/bookPreview/BookPreview.';
 import './App.css';
-import Header from "./components/header/Header";
-import BooksList from "./components/booksList/BooksList";
-import Loader from "./components/loader/Loader";
-import {useSelector} from "react-redux";
-import {Route, Routes} from "react-router-dom";
-import BookPreview from "./components/bookPreview/BookPreview.";
 
 const App = () => {
     const isLoading = useSelector(state => state.books.isLoading)

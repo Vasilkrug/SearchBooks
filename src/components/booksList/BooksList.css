@@ -5,10 +5,12 @@
     flex-wrap: wrap;
     padding: 20px;
 }
+
 .total-books {
     flex: 0 1 100%;
     text-align: center;
 }
+
 .more-button {
     flex: 0 1 100%;
     text-align: center;

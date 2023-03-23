@@ -1,11 +1,11 @@
 import React from 'react';
+import {useDispatch} from 'react-redux';
+import Select from '../select/Select';
+import {categoriesOptions, sortOptions} from '../data/data';
+import {useSelect} from '../../hooks/useSelect';
+import {fetchToApi} from '../../api/api';
+import Button from '../button/Button';
 import './SearcForm.css';
-import Select from "../select/Select";
-import {categoriesOptions, sortOptions} from "../data/data";
-import {useDispatch} from "react-redux";
-import {useSelect} from "../../hooks/useSelect";
-import {fetchToApi} from "../../api/api";
-import Button from "../button/Button";
 
 const SearchForm = () => {
     const [categorySelect, setCategorySelect] = useSelect('all');
@@ -32,7 +32,7 @@ const SearchForm = () => {
     return (
         <form className={'search-form'}>
             <label>
-                <input value={value} onChange={(e) => setValue(e)} className={'search'} type="text"
+                <input value={value} onChange={(e) => setValue(e)} className={'search'} type='text'
                        placeholder={'Search'}/>
             </label>
             <label>

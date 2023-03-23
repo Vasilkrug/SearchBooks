@@ -1,27 +1,25 @@
 import React from 'react';
-import BookCard from "../bookCard/BookCard";
-import {useDispatch, useSelector} from "react-redux";
+import BookCard from '../bookCard/BookCard';
+import {useDispatch, useSelector} from 'react-redux';
+import {fetchToApi} from '../../api/api';
+import Button from '../button/Button';
 import './BooksList.css';
-import {fetchToApi} from "../../api/api";
-import Button from "../button/Button";
 
 const BooksList = () => {
     const books = useSelector(state => state.books.books)
     const totalBooks = useSelector(state => state.books.totalBooks)
     const hasError = useSelector(state => state.books.hasError)
-    const sortOptions = useSelector(state => state.books.sortOptions)
+    const {categorySelect, sortSelect} = useSelector(state => state.books.sortOptions)
     const inputValue = useSelector(state => state.books.inputValue)
     const startIndex = useSelector(state => state.books.startIndex)
     const emptyImg = require('../../assets/images/emptyImg.jpg');
-    const {categorySelect, sortSelect} = sortOptions
     const dispatch = useDispatch();
 
     const getId = (id) => {
         dispatch({type: 'SELECT_BOOK', payload: {id: id}})
     }
 
-    const loadMoreHandler = async (e) => {
-        e.preventDefault()
+    const loadMoreHandler = async () => {
         dispatch({type: 'SET_IS_LOADING', payload: {isLoading: true}})
         dispatch({type: 'INCREMENT_START_INDEX'})
         const data = await fetchToApi(inputValue, categorySelect, sortSelect, startIndex)
@@ -49,7 +47,7 @@ const BooksList = () => {
                 })
                 : null}
             <div className={'more-button'}>
-                {(books.length && books.length >= 30 ) && (startIndex < totalBooks)?
+                {(books.length && books.length >= 30) && (startIndex < totalBooks) ?
                     <Button onclick={loadMoreHandler} text={'Загрузить еще'}/>
                     : null}
             </div>

@@ -1,12 +1,12 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import './BookCard.css'
-import {Link} from "react-router-dom";
 
 const BookCard = ({img, categories, title, authors, id, getId}) => {
     return (
         <div className={'book-card'} onClick={() => getId(id)}>
             <div className={'card-img'}>
-                <img src={img} alt="book"/>
+                <img src={img} alt='book'/>
             </div>
             <div className={'card-title'}>
                 <Link to={id}><p>{title}</p></Link>
@@ -16,7 +16,6 @@ const BookCard = ({img, categories, title, authors, id, getId}) => {
                 <span>{!authors ? 'Без автора' : authors[0]}</span>
             </div>
         </div>
-
     );
 };
 

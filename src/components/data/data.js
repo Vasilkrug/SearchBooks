@@ -9,6 +9,6 @@ export const categoriesOptions = [
 ];
 
 export const sortOptions = [
-    {value:'relevance'},
+    {value: 'relevance'},
     {value: 'newest'}
 ]

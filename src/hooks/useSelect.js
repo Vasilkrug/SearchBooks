@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useState} from 'react';
 
 export const useSelect = (initialState) => {
     const [value, setValue] = useState(initialState)
