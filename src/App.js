@@ -3,14 +3,13 @@ import Header from './components/header/Header';
 import Loader from './components/loader/Loader';
 import {useSelector} from 'react-redux';
 import {Route, Routes} from 'react-router-dom';
-import BookPreview from './components/bookPreview/BookPreview.';
 import Main from './pages/main/Main';
+import Book from './pages/book/Book';
 import './App.css';
 
 
 const App = () => {
     const isLoading = useSelector(state => state.books.isLoading)
-    const selectedBook = useSelector(state => state.books.selectedBook)
 
     return (
         <div className={'App'}>
@@ -19,7 +18,7 @@ const App = () => {
                 <Route path={'/'} element={<Main/>}/>
                 <Route
                     path={'/:id'}
-                    element={<BookPreview selectedBook={selectedBook}/>}/>
+                    element={<Book/>}/>
             </Routes>
             {isLoading ? <Loader/> : null}
         </div>
