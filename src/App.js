@@ -6,6 +6,7 @@ import {Route, Routes} from 'react-router-dom';
 import Main from './pages/main/Main';
 import Book from './pages/book/Book';
 import './App.css';
+import Error from "./pages/error/Error";
 
 
 const App = () => {
@@ -15,10 +16,11 @@ const App = () => {
         <div className={'App'}>
             <Header/>
             <Routes>
-                <Route path={'/'} element={<Main/>}/>
+                <Route exact path={'/'} element={<Main/>}/>
                 <Route
-                    path={'/:id'}
+                    exact path={'/book/:id'}
                     element={<Book/>}/>
+                <Route path={'*'} element={<Error/>}/>
             </Routes>
             {isLoading ? <Loader/> : null}
         </div>
