@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/SearchBooks/static/css/main.c0c2a36d.css",
+    "main.js": "/SearchBooks/static/js/main.9bc4286b.js",
+    "static/media/emptyImg.jpg": "/SearchBooks/static/media/emptyImg.6eb4f3b591397980d985.jpg",
+    "static/media/loader.svg": "/SearchBooks/static/media/loader.14ad77b89a83cb02eb7cc1f21883770a.svg",
+    "index.html": "/SearchBooks/index.html",
+    "main.c0c2a36d.css.map": "/SearchBooks/static/css/main.c0c2a36d.css.map",
+    "main.9bc4286b.js.map": "/SearchBooks/static/js/main.9bc4286b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c0c2a36d.css",
+    "static/js/main.9bc4286b.js"
+  ]
+}
