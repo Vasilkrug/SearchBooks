@@ -11,7 +11,7 @@ const initialState = {
 export const BooksReducer = (state = initialState, action) => {
     switch (action.type) {
         case 'SEARCH_BOOKS':
-            return {...state, books: [...action.payload.books]};
+            return {...state, books: action.payload.books};
         case 'TOTAL_BOOKS':
             return {...state, totalBooks: action.payload.count};
         case 'LOAD_MORE_BOOKS':

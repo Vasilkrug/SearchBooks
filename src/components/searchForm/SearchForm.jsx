@@ -6,11 +6,13 @@ import {useSelect} from '../../hooks/useSelect';
 import {fetchToApi} from '../../api/api';
 import Button from '../button/Button';
 import './SearcForm.css';
+import {useNavigate} from "react-router-dom";
 
 const SearchForm = () => {
     const [categorySelect, setCategorySelect] = useSelect('all');
     const [sortSelect, setSortSelect] = useSelect('relevance');
     const [value, setValue, clear] = useSelect('');
+    const navigation = useNavigate()
 
     const dispatch = useDispatch();
 
@@ -19,6 +21,8 @@ const SearchForm = () => {
         if (!value){
             return null;
         }else {
+            navigation('/')
+            // TODO возможно стоит объединить вызовы, очень "жирно" получилось
             dispatch({type: 'SET_IS_LOADING', payload: {isLoading: true}})
             dispatch({type: 'SET_INPUT_VALUE', payload: {inputValue: value}})
             dispatch({type: 'SET_SORT_OPTIONS', payload: {sortOptions: {categorySelect, sortSelect}}})

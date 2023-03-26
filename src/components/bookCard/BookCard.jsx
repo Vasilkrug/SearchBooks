@@ -9,7 +9,7 @@ const BookCard = ({img, categories, title, authors, id, getId}) => {
                 <img src={img} alt='book'/>
             </div>
             <div className={'card-title'}>
-                <Link to={id}><p>{title}</p></Link>
+                <Link to={`/book/${id}`}><p>{title}</p></Link>
             </div>
             <div className={'card-info'}>
                 <p>{!categories.length ? 'Без категории' : categories[0]}</p>
